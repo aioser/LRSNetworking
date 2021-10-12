@@ -1,0 +1,6 @@
+framework module Pods_LRSNetworking_Tests {
+  umbrella header "Pods-LRSNetworking_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
