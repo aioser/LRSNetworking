@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @protocol LRSNetworkingDecoderProtocol <NSObject>
-- (NSDictionary *)decodeResponseObject:(NSDictionary *)reponseObject error:(NSError **)error;
+- (NSDictionary *)decodeResponseObject:(NSDictionary *)reponseObject response:(NSURLResponse * _Nonnull)response error:(NSError **)error;
 @end
 
 @protocol LRSNetworkingORMHandlerProtocol <NSObject>

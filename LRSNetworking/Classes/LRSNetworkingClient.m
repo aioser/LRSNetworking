@@ -63,7 +63,7 @@ NSString *const LRSNetworkingResponseObjectErrorDomain = @"com.lrs.networking";
         } else {
             if (self.responseDecoder) {
                 NSError *decodeError = nil;
-                NSDictionary *resp = [self.responseDecoder decodeResponseObject:responseObject error:&decodeError];
+                NSDictionary *resp = [self.responseDecoder decodeResponseObject:responseObject response:response error:&decodeError];
                 if (decodeError) {
                     parasError = decodeError;
                 } else {
