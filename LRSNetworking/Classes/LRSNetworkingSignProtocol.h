@@ -6,7 +6,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "LRSNetworkErrorResponse.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -20,12 +20,13 @@ extern NSString *const LRSNetworkingResponseObjectErrorDomain;
 @property (nonatomic, strong, readonly) AFHTTPSessionManager *session;
 
 // DI
-@property (nonatomic, weak) id<LRSNetworkingSignProtocol> signer;
-@property (nonatomic, weak) id<LRSNetworkingBlackBoxProviderProtocol> blackBoxProvider;
-@property (nonatomic, weak) id<LRSNetworkingDecoderProtocol> responseDecoder;
-@property (nonatomic, weak) id<LRSNetworkingORMHandlerProtocol> ormHandler;
-@property (nonatomic, weak) id<LRSNetworkingCaptchaHandlerProtocol> captchaHandler;
-@property (nonatomic, weak) id<LRSNetworkingErrorCatchProtocol> errorCatcher;
+@property (nonatomic, strong) id<LRSNetworkingSignProtocol> signer;
+@property (nonatomic, strong) id<LRSNetworkingBlackBoxProviderProtocol> blackBoxProvider;
+
+@property (nonatomic, strong) id<LRSNetworkingDecoderProtocol> responseDecoder;
+@property (nonatomic, strong) id<LRSNetworkingORMHandlerProtocol> ormHandler;
+@property (nonatomic, strong) id<LRSNetworkingCaptchaHandlerProtocol> captchaHandler;
+@property (nonatomic, strong) id<LRSNetworkingErrorCatchProtocol> errorCatcher;
 
 - (NSURLSessionDataTask *)requestPath:(NSString *)path
                            parameters:(NSDictionary * _Nullable)parameters
