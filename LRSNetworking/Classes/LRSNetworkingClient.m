@@ -32,7 +32,7 @@ NSString *const LRSNetworkingResponseObjectErrorDomain = @"com.lrs.networking";
                                method:(NSString *)method
                                result:(void(^)(NSURLResponse * _Nonnull response, id _Nullable responseObject, NSError * _Nullable error))result {
 
-    NSURL *url = [NSURL URLWithString:path relativeToURL:self.baseURL];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", self.path, path] relativeToURL:self.baseURL];
     NSMutableURLRequest *request = [self.session.requestSerializer requestWithMethod:method URLString:url.absoluteString parameters:parameters error:nil];
 
     if (self.signer) {
