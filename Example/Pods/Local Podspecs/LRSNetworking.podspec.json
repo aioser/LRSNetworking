@@ -1,6 +1,6 @@
 {
   "name": "LRSNetworking",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "summary": "A short description of LRSNetworking.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/刘sama/LRSNetworking",
@@ -12,8 +12,8 @@
     "刘sama": "junchen.liu@jiamiantech.com"
   },
   "source": {
-    "git": "https://github.com/刘sama/LRSNetworking.git",
-    "tag": "0.1.0"
+    "git": "git@github.com:aioser/LRSNetworking.git",
+    "tag": "0.1.2"
   },
   "platforms": {
     "ios": "9.0"

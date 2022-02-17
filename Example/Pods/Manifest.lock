@@ -24,37 +24,79 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - LRSNetworking (0.1.0):
+  - JMProgressHUD (0.5.1):
+    - SDWebImage
+    - SDWebImageWebPCoder
+  - JSONModel (1.7.0)
+  - libwebp (1.2.1):
+    - libwebp/demux (= 1.2.1)
+    - libwebp/mux (= 1.2.1)
+    - libwebp/webp (= 1.2.1)
+  - libwebp/demux (1.2.1):
+    - libwebp/webp
+  - libwebp/mux (1.2.1):
+    - libwebp/demux
+  - libwebp/webp (1.2.1)
+  - LRSNetworking (0.1.2):
     - AFNetworking (~> 4.0)
+  - ReactiveObjC (3.1.1)
+  - SDWebImage (5.12.3):
+    - SDWebImage/Core (= 5.12.3)
+  - SDWebImage/Core (5.12.3)
+  - SDWebImageWebPCoder (0.8.4):
+    - libwebp (~> 1.0)
+    - SDWebImage/Core (~> 5.10)
   - Specta (1.0.7)
 
 DEPENDENCIES:
   - Expecta
   - "Expecta+Snapshots"
   - FBSnapshotTestCase
+  - "JMProgressHUD (from `git@coding.jiamiantech.com:ce/JMProgressHUD.git`)"
+  - JSONModel (~> 1.7.0)
   - LRSNetworking (from `../`)
+  - ReactiveObjC
   - Specta
 
 SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - libwebp
+    - SDWebImage
+    - SDWebImageWebPCoder
   trunk:
     - AFNetworking
     - Expecta
     - "Expecta+Snapshots"
     - FBSnapshotTestCase
+    - JSONModel
+    - ReactiveObjC
     - Specta
 
 EXTERNAL SOURCES:
+  JMProgressHUD:
+    :git: "git@coding.jiamiantech.com:ce/JMProgressHUD.git"
   LRSNetworking:
     :path: "../"
+
+CHECKOUT OPTIONS:
+  JMProgressHUD:
+    :commit: aa0eb86efd69de6f3f53b3be24d127eb24972ad4
+    :git: "git@coding.jiamiantech.com:ce/JMProgressHUD.git"
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
   "Expecta+Snapshots": dcff217eef506dabd6dfdc7864ea2da321fafbb8
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  LRSNetworking: 0bb2d963db467fb5ccf242258fa5f837b85df3c1
+  JMProgressHUD: 1833faca88fcc5e94af518cb8569cfb051a1c806
+  JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
+  libwebp: 98a37e597e40bfdb4c911fc98f2c53d0b12d05fc
+  LRSNetworking: 83cc946ef4556d254e8c29e1c0bbdc64ddfd783d
+  ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
+  SDWebImage: 53179a2dba77246efa8a9b85f5c5b21f8f43e38f
+  SDWebImageWebPCoder: f93010f3f6c031e2f8fb3081ca4ee6966c539815
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
 
-PODFILE CHECKSUM: fdfcadd519d907cb3d84f9b3a54ff3fa87f85cf8
+PODFILE CHECKSUM: 468d10bd893c6ad31ddce9057053cb70193a6fd4
 
 COCOAPODS: 1.10.2

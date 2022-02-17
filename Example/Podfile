@@ -1,9 +1,16 @@
+source 'https://github.com/CocoaPods/Specs.git'
+source 'git@coding.jiamiantech.com:ce/jiamianSpecs.git'
+source 'git@coding.jiamiantech.com:ce/LRSDevRepo/LRSRepos.git'
+
 use_frameworks!
 
-platform :ios, '9.0'
+platform :ios, '11.0'
 
 target 'LRSNetworking_Example' do
   pod 'LRSNetworking', :path => '../'
+  pod 'ReactiveObjC'
+  pod 'JSONModel', '~> 1.7.0'
+  pod 'JMProgressHUD'
 
   target 'LRSNetworking_Tests' do
     inherit! :search_paths

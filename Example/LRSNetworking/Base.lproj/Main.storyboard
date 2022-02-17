@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="whP-gf-Uak">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20036.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="whP-gf-Uak">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20018.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,12 +18,56 @@
                     <view key="view" contentMode="scaleToFill" id="TpU-gO-2f1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4jS-Ga-GZp">
+                                <rect key="frame" x="90" y="77" width="181" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="4jS-Ga-GZp" secondAttribute="height" multiplier="67:31" constant="114" id="bbl-SH-q91"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="security module"/>
+                                <connections>
+                                    <action selector="securuty:" destination="whP-gf-Uak" eventType="touchUpInside" id="LQa-XW-p7j"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6U-Dp-DAR">
+                                <rect key="frame" x="119.5" y="193" width="122" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="g6U-Dp-DAR" secondAttribute="height" multiplier="122:31" id="ouQ-eq-PnD"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="system module"/>
+                                <connections>
+                                    <action selector="system:" destination="whP-gf-Uak" eventType="touchUpInside" id="GJt-hx-qDl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bz-DF-mrm">
+                                <rect key="frame" x="127" y="318" width="107" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="8bz-DF-mrm" secondAttribute="height" multiplier="107:31" id="iNK-Jp-spL"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="User module"/>
+                                <connections>
+                                    <action selector="user:" destination="whP-gf-Uak" eventType="touchUpInside" id="Q3N-d1-JC4"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="g6U-Dp-DAR" firstAttribute="centerX" secondItem="4jS-Ga-GZp" secondAttribute="centerX" id="05h-bH-AjJ"/>
+                            <constraint firstItem="8bz-DF-mrm" firstAttribute="top" secondItem="g6U-Dp-DAR" secondAttribute="bottom" constant="94" id="GR9-e6-YUt"/>
+                            <constraint firstItem="4jS-Ga-GZp" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="77" id="Jck-uh-zv6"/>
+                            <constraint firstItem="4jS-Ga-GZp" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" constant="-7" id="SHd-ik-ZGP"/>
+                            <constraint firstItem="8bz-DF-mrm" firstAttribute="centerY" secondItem="TpU-gO-2f1" secondAttribute="centerY" id="XTu-Pi-Qg1"/>
+                            <constraint firstItem="g6U-Dp-DAR" firstAttribute="width" secondItem="4jS-Ga-GZp" secondAttribute="width" multiplier="0.674033" id="ey3-pi-HbY"/>
+                            <constraint firstItem="8bz-DF-mrm" firstAttribute="centerX" secondItem="g6U-Dp-DAR" secondAttribute="centerX" id="q0Y-cF-qxv"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="433"/>
+            <point key="canvasLocation" x="304.80000000000001" y="432.23388305847078"/>
         </scene>
     </scenes>
 </document>

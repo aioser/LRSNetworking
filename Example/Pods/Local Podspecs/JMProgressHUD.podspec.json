@@ -1,0 +1,35 @@
+{
+  "name": "JMProgressHUD",
+  "version": "0.5.1",
+  "summary": "A short description of JMProgressHUD.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "git@coding.jiamiantech.com:ce/JMProgressHUD.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "bloack": "junchen.liu@jiamiantech.com"
+  },
+  "source": {
+    "git": "git@coding.jiamiantech.com:ce/JMProgressHUD.git",
+    "tag": "0.5.1"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source_files": "JMProgressHUD/Classes/**/*",
+  "resource_bundles": {
+    "JMProgressHUD": [
+      "JMProgressHUD/Assets/*"
+    ]
+  },
+  "dependencies": {
+    "SDWebImage": [
+
+    ],
+    "SDWebImageWebPCoder": [
+
+    ]
+  }
+}

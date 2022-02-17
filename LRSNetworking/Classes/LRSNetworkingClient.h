@@ -6,33 +6,63 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "LRSNetworkingSignProtocol.h"
+#import "LRSNetworkingRequestModifier.h"
+#import "LRSNetworkingClientConfig.h"
+#import "LRSNetworkingDecryptor.h"
+#import "LRSNetworkingResponseModifier.h"
+#import "LRSNetworkOperation.h"
+#import "LRSNetworkingError.h"
+#import "LRSNetworkingDefine.h"
+#import "LRSNetworkingErrorCatcher.h"
 
 NS_ASSUME_NONNULL_BEGIN
-extern NSString *const LRSNetworkingResponseObjectErrorKey;
-extern NSString *const LRSNetworkingResponseObjectErrorDomain;
+
+@interface LRSNetworkToken : NSObject
+@property (nonatomic, strong, nullable, readonly) NSURL *url;
+@property (nonatomic, strong, nullable, readonly) NSURLRequest *request;
+@property (nonatomic, strong, nullable, readonly) NSURLResponse *response;
+- (void)cancel;
+@end
+
+
 @class AFHTTPSessionManager;
 @interface LRSNetworkingClient : NSObject
 
-- (instancetype)initWithPath:(NSString *)path;
-@property (nonatomic, copy) NSURL *baseURL;
-@property (nonatomic, copy, readonly) NSString *path;
 @property (nonatomic, strong, readonly) AFHTTPSessionManager *session;
+@property (nonatomic, strong, readonly, nonnull) LRSNetworkingClientConfig *config;
 
-// DI
-@property (nonatomic, strong) id<LRSNetworkingSignProtocol> signer;
-@property (nonatomic, strong) id<LRSNetworkingBlackBoxProviderProtocol> blackBoxProvider;
+@property (nonatomic, strong, nullable) id<LRSNetworkingDecryptor> decryptor;
 
-@property (nonatomic, strong) id<LRSNetworkingDecoderProtocol> responseDecoder;
-@property (nonatomic, strong) id<LRSNetworkingORMHandlerProtocol> ormHandler;
-@property (nonatomic, strong) id<LRSNetworkingCaptchaHandlerProtocol> captchaHandler;
-@property (nonatomic, strong) id<LRSNetworkingErrorCatchProtocol> errorCatcher;
++ (nonnull instancetype)shared;
 
-- (NSURLSessionDataTask *)requestPath:(NSString *)path
-                           parameters:(NSDictionary * _Nullable)parameters
-                              headers:(NSDictionary * _Nullable)headers
-                               method:(NSString *)method
-                               result:(void(^)(NSURLResponse * _Nonnull response, id _Nullable responseObject, NSError * _Nullable error))result;
+- (nonnull instancetype)initWithConfig:(nullable LRSNetworkingClientConfig *)config NS_DESIGNATED_INITIALIZER;
+
+- (void)setValue:(nullable NSString *)value forHTTPHeaderField:(nullable NSString *)field;
+- (nullable NSString *)valueForHTTPHeaderField:(nullable NSString *)field;
+- (NSDictionary *)allHTTPHeaders;
+
+- (void)addErrorCatcher:(nonnull id<LRSNetworkingErrorCatcher>)catcher;
+- (void)removeErrorCatcher:(nonnull id<LRSNetworkingErrorCatcher>)catcher;
+- (NSArray<id<LRSNetworkingErrorCatcher>> *)errorCatchers;
+
+- (void)addRequestModifier:(nonnull id<LRSNetworkingRequestModifier>)requestModifier;
+- (void)removeRequestModifier:(nonnull id<LRSNetworkingRequestModifier>)requestModifier;
+- (NSArray<id<LRSNetworkingRequestModifier>> *)requestModifiers;
+
+- (void)addResponseModifier:(nonnull id<LRSNetworkingResponseModifier>)responseModifier;
+- (void)removeResponseModifier:(nonnull id<LRSNetworkingResponseModifier>)responseModifier;
+- (NSArray<id<LRSNetworkingResponseModifier>> *)responseModifiers;
+
+- (LRSNetworkToken *)requestURL:(NSURL *)URL
+                     parameters:(NSDictionary * _Nullable)parameters
+                         method:(LRSNetworkingMethod)method
+                        context:(nullable LRSNetworkingContext *)context
+                        success:(LRSNetworkOperationSuccessBlock)success
+                        failure:(LRSNetworkOperationFailureBlock _Nullable)failure;
+
+- (LRSNetworkToken *)resumeOperation:(LRSNetworkOperation *)operation;
+
+- (void)cancelAllTasks;
 
 @end
 
