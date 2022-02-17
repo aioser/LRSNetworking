@@ -80,6 +80,7 @@
 }
 
 - (void)handlerResponse:(NSURLResponse * _Nonnull)response responseObject:(id  _Nullable)responseObject error:(NSError * _Nullable) error {
+    self.response = response;
     if (error) {
         [self sendError:error];
         return;
