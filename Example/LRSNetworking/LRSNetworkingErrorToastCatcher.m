@@ -17,14 +17,14 @@
 
 - (BOOL)catchError:(NSError *)error {
     if ([self tryCatch:error]) {
-        [JMProgressHUD showErrorWithStatus:error.localizedDescription];
+        [LRSProgressHUD showErrorWithStatus:error.localizedDescription];
         return true;
     }
     return false;
 }
 
 - (BOOL)tryCatch:(NSError *)error {
-    return [error.userInfo[LRSNetworkingErrorInfoKeyNotificationType] integerValue] == LRSNetwokingErrorMessageTypeToast;
+    return [error.userInfo[LRSNetworkingErrorInfoKeyNotificationType] integerValue] == LRSNetwokingErrorMessageTypeToast && !error.userInfo[LRSNetworkingErrorInfoKeyExtraParams];
 }
 
 @end

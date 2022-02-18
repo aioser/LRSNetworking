@@ -7,13 +7,10 @@
 //
 
 #import "LRSSecurityNetworkingClient.h"
-#import "LRSNetworkingErrorToastCatcher.h"
-#import "LRSNetworkingErrorDialogCatcher.h"
-#import "LRSNetworkingErrorCaptchaCatcher.h"
-#import "LRSSecurityNetworkingReqestModifier.h"
 #import "LRSSecurityNetworkingResponseModifier.h"
 
 @import LRSNetworking;
+@import JMEncryption;
 
 @interface LRSSecurityNetworkingClient()
 @property (nonatomic, strong) LRSNetworkingClient *client;
@@ -33,13 +30,15 @@
     if (self = [super init]) {
         LRSNetworkingClientConfig *configure = [LRSNetworkingClientConfig defaultConfig];
         _client = [[LRSNetworkingClient alloc] initWithConfig:configure];
-        [_client addErrorCatcher:[LRSNetworkingErrorToastCatcher new]];
-        [_client addErrorCatcher:[LRSNetworkingErrorDialogCatcher new]];
-        [_client addErrorCatcher:[LRSNetworkingErrorCaptchaCatcher new]];
-
-        [_client addRequestModifier:[LRSSecurityNetworkingReqestModifier new]];
+        LRSNetworkingGlobalCatcher *global = [LRSNetworkingGlobalCatcher shared];
+        for (id<LRSNetworkingErrorCatcher> catcher in global.errorCatchers) {
+            [_client addErrorCatcher:catcher];
+        }
+        for (id<LRSNetworkingRequestModifier> modifier in global.requestModifiers) {
+            [_client addRequestModifier:modifier];
+        }
         [_client addResponseModifier:[LRSSecurityNetworkingResponseModifier new]];
-
+        [_client setValue:@"security" forHTTPHeaderField:@"Module"];
         _client.baseURL = [NSURL URLWithString:@"http://localhost:3000/security/"];
     }
     return self;
@@ -48,6 +47,8 @@
 - (RACSignal<LRSLoginResponseModel *> *)login {
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         NSMutableDictionary *parameters = [@{} mutableCopy];
+        parameters[@"token"] = @"13253565920";
+        parameters[@"accessToken"] = @"123456";
         LRSNetworkToken *token = [self.client GET:@"login" parameters:parameters context:nil success:^(__kindof NSURLSessionTask * _Nonnull task, id  _Nullable responseObject) {
             [subscriber sendNext:responseObject];
             [subscriber sendCompleted];

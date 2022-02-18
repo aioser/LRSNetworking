@@ -23,6 +23,7 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		8748710427BF780B00C136FC /* LRSUserNetworkingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8748710327BF780B00C136FC /* LRSUserNetworkingClient.m */; };
 		87C8A40F27BCF75000A8B8F0 /* LRSSecurityNetworkingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C8A40E27BCF75000A8B8F0 /* LRSSecurityNetworkingClient.m */; };
 		87C8A41227BCFA0C00A8B8F0 /* LRSNetworkingErrorToastCatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C8A41127BCFA0C00A8B8F0 /* LRSNetworkingErrorToastCatcher.m */; };
 		87C8A41527BCFA1800A8B8F0 /* LRSNetworkingErrorDialogCatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C8A41427BCFA1800A8B8F0 /* LRSNetworkingErrorDialogCatcher.m */; };
@@ -31,6 +32,7 @@
 		87C8A42027BD043F00A8B8F0 /* LRSSecurityNetworkingResponseModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C8A41F27BD043F00A8B8F0 /* LRSSecurityNetworkingResponseModifier.m */; };
 		87C8A42527BD0CB000A8B8F0 /* LRSLoginResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C8A42427BD0CB000A8B8F0 /* LRSLoginResponseModel.m */; };
 		87C8A42927BE4C0000A8B8F0 /* LRSCaptchaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C8A42827BE4C0000A8B8F0 /* LRSCaptchaManager.m */; };
+		87C8A42D27BF33AF00A8B8F0 /* LRSRequestSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C8A42C27BF33AF00A8B8F0 /* LRSRequestSigner.m */; };
 		BCE46DE3D08EB08A1F5DC633 /* Pods_LRSNetworking_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905A757D66F432E74F6EEFC5 /* Pods_LRSNetworking_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +73,8 @@
 		847F2C4CE5DABA8CB3BCA9A7 /* Pods_LRSNetworking_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LRSNetworking_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		850DA850366CC3268460314D /* Pods-LRSNetworking_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LRSNetworking_Example.release.xcconfig"; path = "Target Support Files/Pods-LRSNetworking_Example/Pods-LRSNetworking_Example.release.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8748710227BF780B00C136FC /* LRSUserNetworkingClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LRSUserNetworkingClient.h; sourceTree = "<group>"; };
+		8748710327BF780B00C136FC /* LRSUserNetworkingClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LRSUserNetworkingClient.m; sourceTree = "<group>"; };
 		87C8A40D27BCF75000A8B8F0 /* LRSSecurityNetworkingClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LRSSecurityNetworkingClient.h; sourceTree = "<group>"; };
 		87C8A40E27BCF75000A8B8F0 /* LRSSecurityNetworkingClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LRSSecurityNetworkingClient.m; sourceTree = "<group>"; };
 		87C8A41027BCFA0C00A8B8F0 /* LRSNetworkingErrorToastCatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LRSNetworkingErrorToastCatcher.h; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 		87C8A42427BD0CB000A8B8F0 /* LRSLoginResponseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LRSLoginResponseModel.m; sourceTree = "<group>"; };
 		87C8A42727BE4C0000A8B8F0 /* LRSCaptchaManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LRSCaptchaManager.h; sourceTree = "<group>"; };
 		87C8A42827BE4C0000A8B8F0 /* LRSCaptchaManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LRSCaptchaManager.m; sourceTree = "<group>"; };
+		87C8A42B27BF33AF00A8B8F0 /* LRSRequestSigner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LRSRequestSigner.h; sourceTree = "<group>"; };
+		87C8A42C27BF33AF00A8B8F0 /* LRSRequestSigner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LRSRequestSigner.m; sourceTree = "<group>"; };
 		8EF179522956A6482D4B4F6D /* LRSNetworking.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LRSNetworking.podspec; path = ../LRSNetworking.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		905A757D66F432E74F6EEFC5 /* Pods_LRSNetworking_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LRSNetworking_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1BE2EFA3F0CD505459C03DC /* Pods-LRSNetworking_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LRSNetworking_Tests.release.xcconfig"; path = "Target Support Files/Pods-LRSNetworking_Tests/Pods-LRSNetworking_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -177,6 +183,8 @@
 				6003F594195388D20070C39A /* Supporting Files */,
 				87C8A41927BD007400A8B8F0 /* SecurityModule */,
 				87C8A42A27BE4C0700A8B8F0 /* Captcha */,
+				87C8A42E27BF33B900A8B8F0 /* Signer */,
+				8748710527BF781100C136FC /* UserModule */,
 			);
 			name = "Example for LRSNetworking";
 			path = LRSNetworking;
@@ -220,6 +228,15 @@
 				0A18B3EC5C0E610BF39517AD /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		8748710527BF781100C136FC /* UserModule */ = {
+			isa = PBXGroup;
+			children = (
+				8748710227BF780B00C136FC /* LRSUserNetworkingClient.h */,
+				8748710327BF780B00C136FC /* LRSUserNetworkingClient.m */,
+			);
+			name = UserModule;
 			sourceTree = "<group>";
 		};
 		87C8A41927BD007400A8B8F0 /* SecurityModule */ = {
@@ -284,6 +301,15 @@
 			name = Captcha;
 			sourceTree = "<group>";
 		};
+		87C8A42E27BF33B900A8B8F0 /* Signer */ = {
+			isa = PBXGroup;
+			children = (
+				87C8A42B27BF33AF00A8B8F0 /* LRSRequestSigner.h */,
+				87C8A42C27BF33AF00A8B8F0 /* LRSRequestSigner.m */,
+			);
+			name = Signer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -333,7 +359,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = LRS;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 1330;
 				ORGANIZATIONNAME = "刘sama";
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
@@ -395,9 +421,12 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LRSNetworking_Example/Pods-LRSNetworking_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/JMEncryption/JMEncryption.framework",
 				"${BUILT_PRODUCTS_DIR}/JMProgressHUD/JMProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework",
 				"${BUILT_PRODUCTS_DIR}/LRSNetworking/LRSNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/LRSTDLib/LRSTDLib.framework",
+				"${BUILT_PRODUCTS_DIR}/LRSWhiteBoxQA/LRSWhiteBoxQA.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImageWebPCoder/SDWebImageWebPCoder.framework",
@@ -406,9 +435,12 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JMEncryption.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JMProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONModel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LRSNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LRSTDLib.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LRSWhiteBoxQA.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImageWebPCoder.framework",
@@ -501,7 +533,9 @@
 				87C8A41D27BD042C00A8B8F0 /* LRSSecurityNetworkingReqestModifier.m in Sources */,
 				87C8A41827BCFA2900A8B8F0 /* LRSNetworkingErrorCaptchaCatcher.m in Sources */,
 				87C8A42527BD0CB000A8B8F0 /* LRSLoginResponseModel.m in Sources */,
+				87C8A42D27BF33AF00A8B8F0 /* LRSRequestSigner.m in Sources */,
 				87C8A42027BD043F00A8B8F0 /* LRSSecurityNetworkingResponseModifier.m in Sources */,
+				8748710427BF780B00C136FC /* LRSUserNetworkingClient.m in Sources */,
 				6003F5A7195388D20070C39A /* LRSViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				87C8A42927BE4C0000A8B8F0 /* LRSCaptchaManager.m in Sources */,
@@ -558,23 +592,38 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -587,7 +636,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -598,29 +647,44 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -636,9 +700,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LRSNetworking/LRSNetworking-Prefix.pch";
 				INFOPLIST_FILE = "LRSNetworking/LRSNetworking-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.c2vl.kgamebox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
@@ -654,9 +718,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LRSNetworking/LRSNetworking-Prefix.pch";
 				INFOPLIST_FILE = "LRSNetworking/LRSNetworking-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.c2vl.kgamebox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;

@@ -1,0 +1,33 @@
+{
+  "name": "LRSWhiteBoxQA",
+  "version": "0.1.0",
+  "summary": "A short description of LRSWhiteBox.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/刘sama/LRSWhiteBox",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "刘sama": "junchen.liu@jiamiantech.com"
+  },
+  "source": {
+    "git": "git@coding.jiamiantech.com:ce/LRSWhiteBox.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "LRSWhiteBox/Classes/Utils/*",
+  "vendored_frameworks": "LRSWhiteBox/Classes/DingXiang/appstore/release/*.framework",
+  "dependencies": {
+    "JMEncryption": [
+
+    ]
+  },
+  "frameworks": "SystemConfiguration",
+  "libraries": [
+    "c++",
+    "z"
+  ]
+}

@@ -29,8 +29,11 @@
 }
 
 - (BOOL)tryCatch:(NSError *)error {
-    LRSNetworkOperation *operation = error.userInfo[LRSNetworkingErrorInfoKeyRequestOperation];
-    return [@"login" isEqualToString: operation.request.URL.absoluteString.lastPathComponent];
+    BOOL dialog = [error.userInfo[LRSNetworkingErrorInfoKeyNotificationType] integerValue] == LRSNetwokingErrorMessageTypeDialog;
+    if (dialog) {
+        return true;
+    }
+    return false;
 }
 
 @end

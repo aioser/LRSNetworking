@@ -125,14 +125,18 @@
         info[LRSNetworkingErrorInfoKeyRequestOperation] = self;
         error = [NSError errorWithDomain:error.domain code:error.code userInfo:info];
     }
+    BOOL errorIsCatched = false;
     for (id<LRSNetworkingErrorCatcher> errorCatcher in [self errorCatchers]) {
         if ([errorCatcher catchError:error]) {
+            errorIsCatched = true;
             break;
         }
     }
-    LRSNetworkOperationFailureBlock failure = self.callbackBlocks[kLRSFailureCallbackKey];
-    if (failure) {
-        failure(self.dataTask, error);
+    if (!errorIsCatched) {
+        LRSNetworkOperationFailureBlock failure = self.callbackBlocks[kLRSFailureCallbackKey];
+        if (failure) {
+            failure(self.dataTask, error);
+        }
     }
     [self done];
 }

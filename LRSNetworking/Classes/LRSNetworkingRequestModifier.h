@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol LRSNetworkingRequestModifier <NSObject>
-- (nullable NSURLRequest *)modifiedRequestWithRequest:(nonnull NSURLRequest *)request;
+- (nullable __kindof NSURLRequest *)modifiedRequestWithRequest:(nonnull __kindof NSURLRequest *)request;
 - (BOOL)isGlobalModifier;
 @end
 

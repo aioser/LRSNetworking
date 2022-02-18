@@ -180,12 +180,15 @@ NSErrorDomain const _Nonnull LRSNetworkingErrorDomain = @"com.lrs.networking";
     } else {
         requestModifiers = [self requestModifiers];
     }
+    if (requestModifiers) {
+        mutableContext[LRSNetworkingContextOptionRequestModifier] = requestModifiers;
+    }
 
     NSURLRequest *request;
     if (requestModifiers) {
-        NSURLRequest *modifiedRequest;
+        NSURLRequest *modifiedRequest = mutableRequest;
         for (id<LRSNetworkingRequestModifier> requestModifier in requestModifiers) {
-            modifiedRequest = [requestModifier modifiedRequestWithRequest:[mutableRequest copy]];
+            modifiedRequest = [requestModifier modifiedRequestWithRequest:[modifiedRequest copy]];
         }
         if (!modifiedRequest) {
             return nil;

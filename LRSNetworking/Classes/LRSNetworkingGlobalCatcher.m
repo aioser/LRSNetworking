@@ -8,9 +8,8 @@
 #import "LRSNetworkingGlobalCatcher.h"
 
 @interface LRSNetworkingGlobalCatcher()
-@property (nonatomic, strong, readwrite) NSMutableArray<id<LRSNetworkingErrorCatcher>> *errorCatchers_;
-@property (nonatomic, strong, readwrite) NSMutableArray<id<LRSNetworkingRequestModifier>> *requestModifiers_;
-@property (nonatomic, strong, readwrite) NSMutableArray<id<LRSNetworkingResponseModifier>> *responseModifiers_;
+@property (nonatomic, strong, readwrite) NSMutableSet<id<LRSNetworkingErrorCatcher>> *errorCatchers_;
+@property (nonatomic, strong, readwrite) NSMutableSet<id<LRSNetworkingRequestModifier>> *requestModifiers_;
 @end
 
 @implementation LRSNetworkingGlobalCatcher
@@ -22,6 +21,14 @@
         instance = [self new];
     });
     return instance;
+}
+
+- (instancetype)init {
+    if (self = [super init]) {
+        _errorCatchers_ = [NSMutableSet set];
+        _requestModifiers_ = [NSMutableSet set];
+    }
+    return self;
 }
 
 - (void)addErrorCatcher:(id<LRSNetworkingErrorCatcher>)catcher {
@@ -56,11 +63,11 @@
     }
 }
 
-- (NSArray<id<LRSNetworkingErrorCatcher>> *)errorCatchers {
+- (NSSet<id<LRSNetworkingErrorCatcher>> *)errorCatchers {
     return self.errorCatchers_;
 }
 
-- (NSArray<id<LRSNetworkingRequestModifier>> *)requestModifiers {
+- (NSSet<id<LRSNetworkingRequestModifier>> *)requestModifiers {
     return self.requestModifiers_;
 }
 

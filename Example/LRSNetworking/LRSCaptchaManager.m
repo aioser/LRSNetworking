@@ -7,7 +7,7 @@
 //
 
 #import "LRSCaptchaManager.h"
-
+@import LRSTDLib;
 @implementation LRSCaptchaManager
 + (instancetype)instance {
     static id instance = nil;
@@ -19,8 +19,16 @@
 }
 
 - (void)createCaptchaWithInfo:(NSDictionary *)info end:(nonnull void (^)(NSString * _Nullable, NSString * _Nullable, NSError * _Nullable))end {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        end(@"captcha", @"sms", nil);
-    });
+    NSString *token = info[@"captcha"];
+    if (!token) {
+        token = @"N/DoylTZuhu5Sms3sqG57tE0LvnHbgtZ0zt4Ra3Pf+4154TpEQF3Y8hQ411Yi+19PuO/NzyzY7g7OByB94O0xUm6DrP8Fq4Pc2KDqmkbGNE=_2";
+    }
+    [LRSTDCaptchaManager createCaptchaWithOptions:nil token:token superView:nil onReady:nil failed:^(NSInteger code, NSString * _Nonnull errorMsg) {
+        end(nil, nil, [NSError errorWithDomain:@"com.lrs.td" code:code userInfo:@{
+            NSLocalizedDescriptionKey: errorMsg
+        }]);
+    } successed:^(NSString * _Nonnull token) {
+        end(token, nil, nil);
+    }];
 }
 @end

@@ -15,8 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LRSNetworkingGlobalCatcher : NSObject
 @property (nonatomic, class, readonly, nonnull) LRSNetworkingGlobalCatcher *shared;
 
-@property (nonatomic, strong, readonly) NSArray<id<LRSNetworkingErrorCatcher>> *errorCatchers;
-@property (nonatomic, strong, readonly) NSArray<id<LRSNetworkingRequestModifier>> *requestModifiers;
+@property (nonatomic, strong, readonly) NSSet<id<LRSNetworkingErrorCatcher>> *errorCatchers;
+@property (nonatomic, strong, readonly) NSSet<id<LRSNetworkingRequestModifier>> *requestModifiers;
 
 - (void)addErrorCatcher:(nonnull id<LRSNetworkingErrorCatcher>)catcher;
 - (void)removeErrorCatcher:(nonnull id<LRSNetworkingErrorCatcher>)catcher;

@@ -1,0 +1,6 @@
+framework module JMEncryption {
+  umbrella header "JMEncryption-umbrella.h"
+
+  export *
+  module * { export * }
+}

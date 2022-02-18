@@ -1,0 +1,6 @@
+framework module LRSTDLib {
+  umbrella header "LRSTDLib-umbrella.h"
+
+  export *
+  module * { export * }
+}
