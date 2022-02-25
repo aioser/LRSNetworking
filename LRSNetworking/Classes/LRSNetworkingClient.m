@@ -108,7 +108,7 @@ NSErrorDomain const _Nonnull LRSNetworkingErrorDomain = @"com.lrs.networking";
 }
 
 - (LRSNetworkToken *)requestURL:(NSURL *)URL
-                     parameters:(NSDictionary *)parameters
+                     parameters:(id)parameters
                          method:(LRSNetworkingMethod)method
                         context:(nullable LRSNetworkingContext *)context
                         success:(LRSNetworkOperationSuccessBlock)success
@@ -155,7 +155,7 @@ NSErrorDomain const _Nonnull LRSNetworkingErrorDomain = @"com.lrs.networking";
     return token;
 }
 
-- (nullable LRSNetworkOperation *)createOperationWithURL:(NSURL *)URL parameters:(NSDictionary *)parameters method:(LRSNetworkingMethod)method context:(nullable LRSNetworkingContext *)context {
+- (nullable LRSNetworkOperation *)createOperationWithURL:(NSURL *)URL parameters:(id)parameters method:(LRSNetworkingMethod)method context:(nullable LRSNetworkingContext *)context {
     NSTimeInterval timeoutInterval = self.config.timeout;
     if (timeoutInterval == 0.0) {
         timeoutInterval = 20.0;

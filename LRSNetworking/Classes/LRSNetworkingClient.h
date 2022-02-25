@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSArray<id<LRSNetworkingResponseModifier>> *)responseModifiers;
 
 - (LRSNetworkToken *)requestURL:(NSURL *)URL
-                     parameters:(NSDictionary * _Nullable)parameters
+                     parameters:(id _Nullable)parameters
                          method:(LRSNetworkingMethod)method
                         context:(nullable LRSNetworkingContext *)context
                         success:(LRSNetworkOperationSuccessBlock)success
