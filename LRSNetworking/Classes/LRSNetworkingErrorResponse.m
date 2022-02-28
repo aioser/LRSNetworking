@@ -12,22 +12,27 @@
 @implementation LRSNetworkingErrorResponse
 
 + (NSError *)errorWithResponse:(NSDictionary *)response request:(nonnull LRSNetworkOperation *)request {
-    NSInteger errorCode = [response[@"err_code"] integerValue];
-    NSString *errorMsg = response[@"err_msg"];
-    NSDictionary *errorParams = response[LRSNetworkingErrorInfoKeyExtraParams];
-    LRSNetwokingErrorParams *extraParameter;
-    NSMutableDictionary *info = [NSMutableDictionary dictionary];
-    info[NSLocalizedDescriptionKey] = errorMsg;
-    info[LRSNetworkingErrorInfoKeyNotificationType] = response[LRSNetworkingErrorInfoKeyNotificationType];
-    info[LRSNetworkingErrorInfoKeyRequestOperation] = request;
-    if ([errorParams isKindOfClass:[NSNull class]]) {
+    if ([response isKindOfClass:[NSDictionary class]]) {
+        NSInteger errorCode = [response[@"err_code"] integerValue];
+        NSString *errorMsg = response[@"err_msg"];
+        NSDictionary *errorParams = response[LRSNetworkingErrorInfoKeyExtraParams];
+        LRSNetwokingErrorParams *extraParameter;
+        NSMutableDictionary *info = [NSMutableDictionary dictionary];
+        info[NSLocalizedDescriptionKey] = errorMsg;
+        info[LRSNetworkingErrorInfoKeyNotificationType] = response[LRSNetworkingErrorInfoKeyNotificationType];
+        info[LRSNetworkingErrorInfoKeyRequestOperation] = request;
+        if ([errorParams isKindOfClass:[NSNull class]]) {
 
-    } else {
-        extraParameter = [[LRSNetwokingErrorParams alloc] initWithDictionary:errorParams];
-        info[LRSNetworkingErrorInfoKeyExtraParams] = extraParameter;
+        } else {
+            extraParameter = [[LRSNetwokingErrorParams alloc] initWithDictionary:errorParams];
+            info[LRSNetworkingErrorInfoKeyExtraParams] = extraParameter;
+        }
+        NSError *error = [NSError errorWithDomain:LRSNetworkingErrorDomain code:errorCode userInfo:info];
+        return error;
     }
-    NSError *error = [NSError errorWithDomain:LRSNetworkingErrorDomain code:errorCode userInfo:info];
-    return error;
+    return [NSError errorWithDomain:LRSNetworkingErrorDomain code:-999 userInfo:@{
+        LRSNetworkingErrorInfoKeyRequestOperation: request
+    }];
 }
 
 @end

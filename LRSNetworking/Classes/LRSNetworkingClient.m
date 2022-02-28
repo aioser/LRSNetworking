@@ -113,6 +113,26 @@ NSErrorDomain const _Nonnull LRSNetworkingErrorDomain = @"com.lrs.networking";
                         context:(nullable LRSNetworkingContext *)context
                         success:(LRSNetworkOperationSuccessBlock)success
                         failure:(LRSNetworkOperationFailureBlock)failure {
+    return [self requestURL:URL parameters:parameters method:method constructingBodyWithBlock:nil context:context success:success failure:failure];
+}
+
+- (LRSNetworkToken *)uploadFileWithURL:(NSURL *)URL
+                            parameters:(id)parameters
+                                method:(LRSNetworkingMethod)method
+             constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> _Nonnull))block
+                               context:(LRSNetworkingContext *)context
+                               success:(LRSNetworkOperationSuccessBlock)success
+                               failure:(LRSNetworkOperationFailureBlock)failure {
+    return [self requestURL:URL parameters:parameters method:method constructingBodyWithBlock:block context:context success:success failure:failure];
+}
+
+- (LRSNetworkToken *)requestURL:(NSURL *)URL
+                            parameters:(id)parameters
+                                method:(LRSNetworkingMethod)method
+             constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> _Nonnull))block
+                               context:(LRSNetworkingContext *)context
+                               success:(LRSNetworkOperationSuccessBlock)success
+                        failure:(LRSNetworkOperationFailureBlock)failure {
     if (!URL) {
         if (failure) {
             NSError *error = [NSError errorWithDomain:LRSNetworkingErrorDomain code:LRSNetworkingErrorInvalidURL userInfo:@{NSLocalizedDescriptionKey : @"url is nil"}];
@@ -120,7 +140,7 @@ NSErrorDomain const _Nonnull LRSNetworkingErrorDomain = @"com.lrs.networking";
         }
         return nil;
     }
-    LRSNetworkOperation *operation = [self createOperationWithURL:URL parameters:parameters method:method context:context];
+    LRSNetworkOperation *operation = [self createOperationWithURL:URL parameters:parameters method:method constructingBodyWithBlock:block context:context];
     if (!operation) {
         if (failure) {
             NSError *error = [NSError errorWithDomain:LRSNetworkingErrorDomain code:LRSNetworkingErrorInvalidDownloadOperation userInfo:@{NSLocalizedDescriptionKey : @"operation is nil"}];
@@ -129,8 +149,9 @@ NSErrorDomain const _Nonnull LRSNetworkingErrorDomain = @"com.lrs.networking";
         return nil;
     }
     [operation addHandlersForSuccess:success failure:failure];
-    return [self resumeOperation:operation];;
+    return [self resumeOperation:operation];
 }
+
 
 - (LRSNetworkToken *)resumeOperation:(LRSNetworkOperation *)operation {
     NSURL *operationKey = operation.request.URL;
@@ -155,16 +176,25 @@ NSErrorDomain const _Nonnull LRSNetworkingErrorDomain = @"com.lrs.networking";
     return token;
 }
 
-- (nullable LRSNetworkOperation *)createOperationWithURL:(NSURL *)URL parameters:(id)parameters method:(LRSNetworkingMethod)method context:(nullable LRSNetworkingContext *)context {
+- (nullable LRSNetworkOperation *)createOperationWithURL:(NSURL *)URL
+                                              parameters:(id)parameters
+                                                  method:(LRSNetworkingMethod)method
+                               constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> _Nonnull))block
+                                                 context:(nullable LRSNetworkingContext *)context {
     NSTimeInterval timeoutInterval = self.config.timeout;
     if (timeoutInterval == 0.0) {
         timeoutInterval = 20.0;
     }
     self.session.requestSerializer.timeoutInterval = timeoutInterval;
-    NSMutableURLRequest *mutableRequest = [self.session.requestSerializer requestWithMethod:method URLString:URL.absoluteString parameters:parameters error:nil];
-    LRSNET_LOCK(_HTTPHeadersLock)
-    mutableRequest.allHTTPHeaderFields = self.HTTPHeaders;
-    LRSNET_UNLOCK(_HTTPHeadersLock)
+    NSMutableURLRequest *mutableRequest;
+    if (block) {
+        mutableRequest = [self.session.requestSerializer multipartFormRequestWithMethod:method URLString:URL.absoluteString parameters:parameters constructingBodyWithBlock:block error:nil];
+    } else {
+        mutableRequest = [self.session.requestSerializer requestWithMethod:method URLString:URL.absoluteString parameters:parameters error:nil];
+        LRSNET_LOCK(_HTTPHeadersLock)
+        mutableRequest.allHTTPHeaderFields = self.HTTPHeaders;
+        LRSNET_UNLOCK(_HTTPHeadersLock)
+    }
 
     LRSNetworkingMutableContext *mutableContext;
     if (context) {

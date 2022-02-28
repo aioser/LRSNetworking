@@ -98,7 +98,7 @@
         decodeResponseObject = responseObject;
     }
 
-    if (!decodeResponseObject[@"err_code"]) {
+    if ([decodeResponseObject isKindOfClass:[NSDictionary class]] && !decodeResponseObject[@"err_code"]) {
         id model;
         for (id<LRSNetworkingResponseModifier> responseModifier in [self responseModifiers]) {
             model = [responseModifier modifiedResponseWithResponseObject:decodeResponseObject response:response];

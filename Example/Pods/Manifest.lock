@@ -54,6 +54,7 @@ PODS:
     - LRSTDLib/BlackBox
   - LRSWhiteBoxQA (0.1.0):
     - JMEncryption
+  - OpenUDID (1.0.0)
   - ReactiveObjC (3.1.1)
   - SDWebImage (5.12.3):
     - SDWebImage/Core (= 5.12.3)
@@ -72,6 +73,7 @@ DEPENDENCIES:
   - LRSNetworking (from `../`)
   - LRSTDLib
   - "LRSWhiteBoxQA (from `git@coding.jiamiantech.com:ce/LRSWhiteBox.git`)"
+  - OpenUDID
   - ReactiveObjC
   - Specta
 
@@ -82,6 +84,7 @@ SPEC REPOS:
     - LRSTDLib
   https://github.com/CocoaPods/Specs.git:
     - libwebp
+    - OpenUDID
     - SDWebImage
     - SDWebImageWebPCoder
   trunk:
@@ -116,11 +119,12 @@ SPEC CHECKSUMS:
   LRSNetworking: 83cc946ef4556d254e8c29e1c0bbdc64ddfd783d
   LRSTDLib: fe7d4b028cd8c9c5322d4e9cafb33c8a935e66cc
   LRSWhiteBoxQA: 944bf3d0ec63f177c6382967c16cdc51a84b7cc4
+  OpenUDID: e7cb6984c7304906ad20f3a36bf087b025896b6b
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   SDWebImage: 53179a2dba77246efa8a9b85f5c5b21f8f43e38f
   SDWebImageWebPCoder: f93010f3f6c031e2f8fb3081ca4ee6966c539815
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
 
-PODFILE CHECKSUM: ffcde868478fd85d6e87838ad5e8677b29a1631b
+PODFILE CHECKSUM: a20d6e7558a6e1311d53d1774a3428a90ff48674
 
 COCOAPODS: 1.10.2

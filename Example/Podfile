@@ -13,7 +13,7 @@ target 'LRSNetworking_Example' do
   pod 'JMProgressHUD'
   pod 'LRSTDLib'
   pod 'LRSWhiteBoxQA', :git => 'git@coding.jiamiantech.com:ce/LRSWhiteBox.git'
-
+  pod 'OpenUDID'
   target 'LRSNetworking_Tests' do
     inherit! :search_paths
 

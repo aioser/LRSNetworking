@@ -18,7 +18,7 @@
     return UIDevice.currentDevice.systemVersion ? : @"0";
 }
 + (NSSet<NSString *> *)acceptableContentTypes {
-    return [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", nil];
+    return [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", @"application/xml", @"text/plain", nil];
 }
 + (NSInteger)timeoutInterval {
     return 20;

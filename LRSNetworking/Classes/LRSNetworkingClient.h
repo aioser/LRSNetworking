@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @class AFHTTPSessionManager;
+@protocol AFMultipartFormData;
 @interface LRSNetworkingClient : NSObject
 
 @property (nonatomic, strong, readonly) AFHTTPSessionManager *session;
@@ -56,6 +57,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (LRSNetworkToken *)requestURL:(NSURL *)URL
                      parameters:(id _Nullable)parameters
                          method:(LRSNetworkingMethod)method
+                        context:(nullable LRSNetworkingContext *)context
+                        success:(LRSNetworkOperationSuccessBlock)success
+                        failure:(LRSNetworkOperationFailureBlock _Nullable)failure;
+
+- (LRSNetworkToken *)uploadFileWithURL:(NSURL *)URL
+                     parameters:(id _Nullable)parameters
+                         method:(LRSNetworkingMethod)method
+    constructingBodyWithBlock:(nullable void (^)(id<AFMultipartFormData> _Nonnull))block
                         context:(nullable LRSNetworkingContext *)context
                         success:(LRSNetworkOperationSuccessBlock)success
                         failure:(LRSNetworkOperationFailureBlock _Nullable)failure;

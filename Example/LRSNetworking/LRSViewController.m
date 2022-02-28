@@ -19,6 +19,8 @@
 @import JMProgressHUD;
 @import LRSTDLib;
 @import LRSNetworking;
+@import AFNetworking;
+
 @interface LRSViewController ()
 
 @end
@@ -41,15 +43,40 @@
 }
 
 - (IBAction)securuty:(id)sender {
-    [[[LRSSecurityNetworkingClient instance] login] subscribeNext:^(LRSLoginResponseModel * _Nullable x) {
-        [LRSProgressHUD showSuccessWithStatus:@"登录成功"];
+    [[[LRSSecurityNetworkingClient instance] smscode] subscribeNext:^(id  _Nullable x) {
+        [[[LRSSecurityNetworkingClient instance] login] subscribeNext:^(LRSLoginResponseModel * _Nullable x) {
+            [LRSProgressHUD showSuccessWithStatus:@"登录成功"];
+        } error:^(NSError * _Nullable error) {
+            NSLog(@"login error ===> %@", error);
+        }];
     } error:^(NSError * _Nullable error) {
-        NSLog(@"login error ===> %@", error);
+
     }];
+
 }
 
 - (IBAction)system:(id)sender {
+    UIImage *image = [UIImage imageNamed:@"img_loading_made"];
+    NSData *data = UIImagePNGRepresentation(image);
+    [[[LRSSecurityNetworkingClient instance] uploadFile:image] subscribeNext:^(NSDictionary * _Nullable x) {
+        [[[LRSSecurityNetworkingClient instance] uploadFile:data url:x[@"result"][@"uploadUrl"]] subscribeNext:^(id  _Nullable x) {
 
+        } error:^(NSError * _Nullable error) {
+            
+        }];
+
+    } error:^(NSError * _Nullable error) {
+
+    }];
+//
+//    [[LRSNetworkingClient shared] uploadFileWithURL:url parameters:nil method:@"PUT" constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull builder) {
+//
+//        [builder appendPartWithFileData:data name:@"img_loading_made" fileName:@"img_loading_made" mimeType:@"image/jpeg"];
+//    } context:nil success:^(__kindof NSURLSessionTask * _Nonnull task, id  _Nullable responseObject) {
+//
+//    } failure:^(__kindof NSURLSessionTask * _Nullable task, NSError * _Nonnull error) {
+//
+//    }];
 }
 
 - (IBAction)user:(id)sender {
